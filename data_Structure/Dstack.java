@@ -1,4 +1,5 @@
 package data_Structure;
+//ques :- Dynamic implementation of stack
 class Node{
 	int no;
 	Node next;

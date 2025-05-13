@@ -1,4 +1,5 @@
 package data_Structure;
+//Ques :-Stack reverse program
 import java.util.*;
 class Stackrev{
 	public void reverse() {
@@ -9,7 +10,7 @@ class Stackrev{
 			char ch = s.charAt(i);
 			st.push(ch);
 		}
-		while(st.isEmpty()) {
+		while(!st.isEmpty()) {
 			char top = (char)st.peek();
 			rev = rev + top;
 			st.pop();

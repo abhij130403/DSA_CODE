@@ -1,4 +1,5 @@
 package data_Structure;
+//Ques :-Check parntheses in a given string
 import java.util.*;
 class CheckParenthesis{
 	public void check() {
