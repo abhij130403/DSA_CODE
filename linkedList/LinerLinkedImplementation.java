@@ -57,6 +57,37 @@ class MyLinkList{
 			start = start.next;
 		}
 	}
+	public int nodeCount() {
+		Node temp;
+		temp = start;
+		int count=0;
+		while(temp != null) {
+			count++;
+			temp=temp.next;
+		}
+		return count;
+	}
+	public void deleteAtAnyLocation(int loc ) {
+		int totalNode = nodeCount();
+		if(loc>totalNode|| loc <1) {
+			System.out.println("Invalid location......");
+		} else if(loc ==1) {
+			deleteAtfirst();
+		} else if(loc == totalNode) {
+			deleteAtLast();
+		} else {
+			Node temp ,temp1;
+			temp = start;
+			temp1 = start.next;
+			for(int i =1;i<loc-1;i++) {
+				temp = temp.next;
+				temp1 = temp.next;
+				
+			}
+			System.out.println("Deleted Element "+temp1.no);
+			temp.next = temp1.next;
+		}
+	}
 	public void traverse() {
 		if(start == null) {
 			System.out.println("LinkList is empty");
@@ -130,16 +161,16 @@ public class LinerLinkedImplementation {
 		MyLinkList p = new MyLinkList();
 //		p.deleteAtfirst();
 //		//mjjp.traverse();
-//		p.insert(45);
+		p.insert(45);
 		p.insert(57);
-//		p.insert(34);
-//		p.insert(39);
-//		p.insert(78);
-//		p.insert(43);
-//		p.insert(12);
-		p.traverse();
+		p.insert(34);
+		p.insert(39);
+		p.insert(78);
+		p.insert(43);
+		p.insert(12);
+//		p.traverse();
 //		p.deleteAtfirst();
-//		System.out.println("");
+		System.out.println("");
 //		p.traverse();
 //		p.insertAtBegining(20);
 //		System.out.println();
@@ -147,7 +178,12 @@ public class LinerLinkedImplementation {
 //		p.insertAtAnyLocation(75, 5);
 //		System.out.println();
 //		p.traverse();
-		p.deleteAtLast();
+	//	p.deleteAtLast();
+		p.traverse();
+		int totalNode =  p.nodeCount();
+		System.out.println("the number of node is :"+totalNode);
+		p.deleteAtAnyLocation(5);
+		System.out.println("\n--------------");
 		p.traverse();
 		
 
