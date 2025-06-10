@@ -89,7 +89,7 @@ class MyTree{
 			    }
 			}
 			
-		} else if(root.no>key) {
+		} else if(key>root.no) {
 			deleteNumber(root.right,root,key);
 		} else {
 			deleteNumber(root.left,root,key);
