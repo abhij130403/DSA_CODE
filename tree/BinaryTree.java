@@ -72,6 +72,31 @@ class MyTree{
 			searchNumber(root.left,key);
 		}
 	}
+	//Deleting the element
+	public void deleteNumber(Node root,Node prevRoot,int key) {
+		if(root == null) {
+			System.out.println("No item found to delete");
+		} else if(root.no == key) {
+			if(root.left != null && root.right != null){
+			    System.out.println("Node has two child");
+			} else if(root.left != null || root.right != null){
+			    System.out.println("Node has one child");
+			} else {
+			    if(key > prevRoot.no) {
+			    	prevRoot.right =null;
+			    } else {
+			    	prevRoot.left = null;
+			    }
+			}
+			
+		} else if(root.no>key) {
+			deleteNumber(root.right,root,key);
+		} else {
+			deleteNumber(root.left,root,key);
+		}
+		
+	}
+	
 	public int findMax(Node root) {
 		if(root == null) {
 			return Integer.MIN_VALUE;
@@ -95,13 +120,18 @@ public class BinaryTree {
 		MyTree p = new MyTree();
 		root = p.insertNode(root, 100);
 		root = p.insertNode(root, 150);
-		root = p.insertNode(root,180);
-		root = p.insertNode(root, 50);
+		root = p.insertNode(root,170);
+		root = p.insertNode(root, 180);
 		root =p.insertNode(root, 120);
-		root =p.insertNode(root, 125);
+		root =p.insertNode(root, 165);
+		root = p.insertNode(root, 50);
 		p.inOrder(root);
-		p.searchNumber(root, 120);
-		p.searchNumber(root, 100);
+		System.out.println();
+//		p.searchNumber(root, 120);
+//		p.searchNumber(root, 100);
+		p.deleteNumber(root, null,125);
+		System.out.println();
+		p.inOrder(root);
 	}
 
 }
